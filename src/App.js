@@ -119,6 +119,7 @@ class App extends Component {
           <div className="column right">
             <h2>Content</h2>
             clubE-mail@example.com
+            <a href="https://srjccsc.slack.com/messages/C0LTMAXN3">Visit our Slack</a>
           </div>
 
         </div>

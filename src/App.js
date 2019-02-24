@@ -8,7 +8,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
-import events from 'events';
+import events from './events';
 
 class App extends Component {
   constructor (props) {
@@ -83,9 +83,10 @@ class App extends Component {
       <div>
         <BigCalendar
         localizer={this.state.localizer}
-        events={[]}
+        events={events}
         startAccessor="start"
         endAccessor="end"
+        style={{ height: "100vh" }}
         />
       </div>
     }

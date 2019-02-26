@@ -1,33 +1,89 @@
 .App {
+  background-color: #F1F1F1;
   text-align: center;
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.footer {
+  background-color: #F1F1F1;
+  display: table;
+  clear: both;
+  content: "";
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.App-link {
-  color: #61dafb;
+.column {
+  background-color: #F1F1F1;
+  width: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.Banner {
+  background-color: #D4A849;
+}
+
+.rcorners3 {
+  border-radius: 0px 10px 10px 0px;
+  background: #4975d4;
+  border: none;
+  width: 100px;
+  height: 50px;
+  transition-duration: 0.1s;
+}
+
+.rcorners3:hover {
+  border-radius: 0px 10px 10px 0px;
+  background: #82E0AA;
+  border: none;
+  width: 100px;
+  height: 50px;
+}
+
+.rcorners2 {
+  border-radius: 0px;
+  background: #4975d4;
+  border: none;
+  width: 100px;
+  height: 50px;
+  transition-duration: 0.1s;
+}
+
+.rcorners2:hover {
+  border-radius: 0px;
+  background: #82E0AA;
+  border: none;
+  width: 100px;
+  height: 50px;
+}
+
+.rcorners1 {
+  border-radius: 10px 0px 0px 10px;
+  background: #4975d4;
+  border: none;
+  width: 100px;
+  height: 50px;
+  transition-duration: 0.1s;
+}
+
+.rcorners1:hover {
+  border-radius: 10px 0px 0px 10px;
+  background: #82E0AA;
+  border: none;
+  width: 100px;
+  height: 50px;
+  transition-duration: 0.1s;
 }

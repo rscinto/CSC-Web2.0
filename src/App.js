@@ -2,64 +2,95 @@ import React, { Component } from 'react';
 import Banner from './Banner.png';
 import ClubLogo from './ClubLogo.png';
 import Placeholder from './Placeholder.jpg';
-import {
-  Button,
-  ButtonGroup,
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption
-} from 'reactstrap';
+import { Carousel } from 'react-responsive-carousel';
 import './App.css';
-import CarouselBase from "./Carousel";
-import UncontrolledCarousel from "reactstrap/es/UncontrolledCarousel";
-
-const items = [
-  {
-    src: Placeholder,
-    altText: 'Slide 1',
-    caption: 'Slide 1'
-  },
-  {
-    src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa20%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa20%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3203125%22%20y%3D%22218.3%22%3ESecond%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
-    altText: 'Slide 2',
-    caption: 'Slide 2'
-  },
-  {
-    src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa21%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa21%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22277%22%20y%3D%22218.3%22%3EThird%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
-    altText: 'Slide 3',
-    caption: 'Slide 3'
-  }
-];
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import BigCalendar from 'react-big-calendar';
+import moment from 'moment';
+import events from './events';
 
 class App extends Component {
   constructor (props) {
     super(props);
-
-    this.state = { cSelected: [] };
-
-    this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
-    this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
-  }
-
-
-
-  onRadioBtnClick(rSelected) {
-    this.setState({ rSelected });
-  }
-
-  onCheckboxBtnClick(selected) {
-    const index = this.state.cSelected.indexOf(selected);
-    if (index < 0) {
-      this.state.cSelected.push(selected);
-    } else {
-      this.state.cSelected.splice(index, 1);
+    this.state = {
+      pageNumber: 0,
+      localizer: BigCalendar.momentLocalizer(moment)
     }
-    this.setState({ cSelected: [...this.state.cSelected] });
+    this.HomeButton = this.HomeButton.bind(this);
+    this.AboutButton = this.AboutButton.bind(this);
+    this.CalendarButton = this.CalendarButton.bind(this);
+  }
+
+  HomeButton(){
+    this.setState({pageNumber: 0})
+  }
+
+  AboutButton(){
+    this.setState({pageNumber: 1})
+  }
+
+  CalendarButton(){
+    this.setState({pageNumber: 2})
   }
 
   render() {
+
+    const pageNumber = this.state.pageNumber;
+    let content;
+
+    if (pageNumber === 0) {
+      content =
+      <div className="Content">
+        1447 Bussman Hall Tuesday 12-2pm
+      <Carousel
+      showThumbs={false}
+      infiniteLoop={true}
+      width="45%"
+      autoPlay={true}
+      interval={3000}
+      transitionTime={350}
+      useKeyboardArrows={true}
+      >
+            <div>
+                <img src={Placeholder} />
+                <p className="legend">Designing the Webiste</p>
+            </div>
+            <div>
+                <img src={Placeholder} />
+                <p className="legend">Legend 2</p>
+            </div>
+            <div>
+                <img src={Placeholder} />
+                <p className="legend">Legend 3</p>
+            </div>
+      </Carousel>
+    </div>
+    }
+    if (pageNumber === 1) {
+      content =
+      <div className="column">
+      To promote a culture of learning within the Computer Science community of
+      Santa Rosa Junior College, and to encourage members to seek out
+      opportunities to expand their knowledge. The club’s goal is to create a
+      professional environment for people to collaborate with each other to
+      create innovative projects and gives students a chance to further explore
+      the vast field of Computer Science. We welcome anyone to join.
+      </div>
+    }
+    if (pageNumber === 2) {
+      content =
+      <div>
+        <BigCalendar
+        localizer={this.state.localizer}
+        events={events}
+        startAccessor="start"
+        endAccessor="end"
+        style={{ height: "100vh" }}
+        />
+      </div>
+    }
+
     return (
       <div className="App">
 
@@ -68,40 +99,30 @@ class App extends Component {
         </div>
 
         <div className="Taskbar">
-          <ButtonGroup>
-            <Button color="primary" onClick={() => this.onRadioBtnClick(1)} active={this.state.rSelected === 1}>Home</Button>
-            <Button color="primary" onClick={() => this.onRadioBtnClick(2)} active={this.state.rSelected === 2}>Calendar</Button>
-            <Button color="primary" onClick={() => this.onRadioBtnClick(3)} active={this.state.rSelected === 3}>About</Button>
-          </ButtonGroup>
+          <button onClick={this.HomeButton} className="rcorners1">Home</button>
+          <button onClick={this.AboutButton} className="rcorners2">About</button>
+          <button onClick={this.CalendarButton} className="rcorners3">Caldendar</button>
         <div>
 
 
-  </div>
+        </div>
         </div>
 
-        <div className="Content">
-          1447 Bussman Hall Tuesday 12-2pm
+        {content}
 
-          <div className="pictures">
-            placeholder for pictures
-            <img src={Placeholder}  alt={"Placeholder"} />
+        <div className="footer">
 
-
+          <div className="column left">
+            <img src={ClubLogo} />
           </div>
 
-          <CarouselBase items={items} />
+          <div className="column right">
+            <h2>Content</h2>
+            clubE-mail@example.com
+            <a href="https://srjccsc.slack.com/messages/C0LTMAXN3">Visit our Slack</a>
+          </div>
+
         </div>
-
-
-
-        <div className="Bottom Bar">
-          <img src={ClubLogo} />
-        </div>
-
-        <div className="Copyright">
-          COPYRIGHT NO STEALING
-        </div>
-
       </div>
     );
   }

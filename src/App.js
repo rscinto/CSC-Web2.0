@@ -16,7 +16,7 @@ class App extends Component {
     this.state = {
       pageNumber: 0,
       localizer: BigCalendar.momentLocalizer(moment)
-    }
+    };
     this.HomeButton = this.HomeButton.bind(this);
     this.AboutButton = this.AboutButton.bind(this);
     this.CalendarButton = this.CalendarButton.bind(this);

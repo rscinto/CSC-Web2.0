@@ -54,7 +54,7 @@ class App extends Component {
       >
             <div>
                 <img src={Placeholder} />
-                <p className="legend">Designing the Webiste</p>
+                <p className="legend">Designing the Website</p>
             </div>
             <div>
                 <img src={Placeholder} />
@@ -95,7 +95,7 @@ class App extends Component {
       <div className="App">
 
         <div className="Banner">
-          <img src={Banner}/>
+          <img src={Banner} alt={"Banner"}/>
         </div>
 
         <div className="Taskbar">
@@ -113,7 +113,7 @@ class App extends Component {
         <div className="footer">
 
           <div className="column left">
-            <img src={ClubLogo} />
+            <img src={ClubLogo} alt={"Club Logo"}/>
           </div>
 
           <div className="column right">

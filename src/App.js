@@ -15,11 +15,15 @@ class App extends Component {
     super(props);
     this.state = {
       pageNumber: 0,
-      localizer: BigCalendar.momentLocalizer(moment)
+      localizer: BigCalendar.momentLocalizer(moment),
+      carouselItem: 0
     };
+
     this.HomeButton = this.HomeButton.bind(this);
     this.AboutButton = this.AboutButton.bind(this);
     this.CalendarButton = this.CalendarButton.bind(this);
+    this.nextSlide = this.nextSlide.bind(this);
+    this.prevSlide = this.prevSlide.bind(this);
   }
 
   HomeButton(){
@@ -34,7 +38,27 @@ class App extends Component {
     this.setState({pageNumber: 2})
   }
 
+  nextSlide(){
+    if(this.state.carouselItem == 2){
+      this.setState({carouselItem: 0})
+    }
+    else{
+      this.setState({carouselItem: this.state.carouselItem + 1})
+    }
+  }
+
+  prevSlide(){
+    if(this.state.carouselItem == 0){
+      this.setState({carouselItem: 2})
+    }
+    else{
+      this.setState({carouselItem: this.state.carouselItem - 1})
+    }
+  }
+
   render() {
+
+    console.log(this.state.carouselItem);
 
     const pageNumber = this.state.pageNumber;
     let content;
@@ -43,14 +67,18 @@ class App extends Component {
       content =
       <div className="Content">
         1447 Bussman Hall Tuesday 12-2pm
+      <button onClick={this.nextSlide}>Next</button>
+      <button onClick={this.prevSlide}>Previous</button>
       <Carousel
       showThumbs={false}
+      showArrows={false}
       infiniteLoop={true}
       width="45%"
-      autoPlay={true}
+      autoPlay={false}
       interval={3000}
       transitionTime={350}
       useKeyboardArrows={true}
+      selectedItem={this.state.carouselItem}
       >
             <div>
                 <img src={Placeholder} />

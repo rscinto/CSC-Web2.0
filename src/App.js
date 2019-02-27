@@ -87,6 +87,7 @@ class App extends Component {
         startAccessor="start"
         endAccessor="end"
         style={{ height: "100vh" }}
+        length={365}
         />
       </div>
     }

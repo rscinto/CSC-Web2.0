@@ -7,16 +7,31 @@ import './App.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import BigCalendar from 'react-big-calendar';
+import Calendar from 'react_google_calendar'
 import moment from 'moment';
-import events from './events';
+
+const calendar_configuration = {
+    api_key: "AIzaSyA45vmQuavsIykPR1wQ6rzNvA5SFmzBoZc",
+    calendars: [
+      {
+        name: 'demo', // whatever you want to name it
+        url: 'srjc.computer.science.club@gmail.com' // your calendar URL
+      }
+    ],
+    dailyRecurrence: 700,
+    weeklyRecurrence: 500,
+    monthlyRecurrence: 20
+}
 
 class App extends Component {
+
   constructor (props) {
     super(props);
     this.state = {
       pageNumber: 0,
       localizer: BigCalendar.momentLocalizer(moment),
-      carouselItem: 0
+      carouselItem: 0,
+      events:[]
     };
 
     this.HomeButton = this.HomeButton.bind(this);
@@ -39,7 +54,7 @@ class App extends Component {
   }
 
   nextSlide(){
-    if(this.state.carouselItem == 2){
+    if(this.state.carouselItem === 2){
       this.setState({carouselItem: 0})
     }
     else{
@@ -48,7 +63,7 @@ class App extends Component {
   }
 
   prevSlide(){
-    if(this.state.carouselItem == 0){
+    if(this.state.carouselItem === 0){
       this.setState({carouselItem: 2})
     }
     else{
@@ -65,7 +80,7 @@ class App extends Component {
 
     if (pageNumber === 0) {
       content =
-      <div className="Content">
+      <div className="Carousel">
         1447 Bussman Hall Tuesday 12-2pm
       <button onClick={this.nextSlide}>Next</button>
       <button onClick={this.prevSlide}>Previous</button>
@@ -108,15 +123,10 @@ class App extends Component {
     }
     if (pageNumber === 2) {
       content =
-      <div>
-        <BigCalendar
-        localizer={this.state.localizer}
-        events={events}
-        startAccessor="start"
-        endAccessor="end"
-        style={{ height: "100vh" }}
-        length={365}
-        />
+      <div className="Calendar">
+      <Calendar
+        events={this.state.events}
+        config={calendar_configuration} />
       </div>
     }
 
@@ -137,7 +147,9 @@ class App extends Component {
         </div>
         </div>
 
-        {content}
+        <div className="Content">
+          {content}
+        </div>
 
         <div className="footer">
 

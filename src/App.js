@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Banner from './Banner.png';
+//import Logo from '/public/bear.png'
 import ClubLogo from './ClubLogo.png';
 import Placeholder from './Placeholder.jpg';
 import { Carousel } from 'react-responsive-carousel';
+import './fonts.css';
 import './App.css';
+import './Carousel.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import BigCalendar from 'react-big-calendar';
@@ -82,7 +85,7 @@ class App extends Component {
     if (pageNumber === 0) {
       content =
       <div className="Carousel">
-        1447 Bussman Hall Tuesday 12-2pm
+      <div>1447 Bussman Hall Tuesday 12-2pm</div>
       <button onClick={this.nextSlide}>Next</button>
       <button onClick={this.prevSlide}>Previous</button>
       <Carousel
@@ -98,7 +101,7 @@ class App extends Component {
       >
             <div>
                 <img src={Placeholder} />
-                <p className="legend">Designing the Website</p>
+                <p className="legend">Designing the Webiste</p>
             </div>
             <div>
                 <img src={Placeholder} />
@@ -133,38 +136,38 @@ class App extends Component {
 
     return (
       <div className="App">
-
-        <div className="Banner">
-          <img src={Banner} alt={"Banner"}/>
-        </div>
-
-        <div className="Taskbar">
-          <button onClick={this.HomeButton} className="rcorners1">Home</button>
-          <button onClick={this.AboutButton} className="rcorners2">About</button>
-          <button onClick={this.CalendarButton} className="rcorners3">Caldendar</button>
-        <div>
-
-
-        </div>
-        </div>
-
-        <div className="Content">
-          {content}
-        </div>
-
-        <div className="footer">
-
-          <div className="column left">
-            <img src={ClubLogo} alt={"Club Logo"}/>
+        <header>
+          <div className="Logo">
+            <img src='bear.png'/>
+            <span>SRJC Computer Science Club</span>
           </div>
-
-          <div className="column right">
-            <h2>Content</h2>
-            clubE-mail@example.com
-            <a href="https://srjccsc.slack.com/messages/C0LTMAXN3">Visit our Slack</a>
+          <nav className="Taskbar">
+              <a onClick={this.HomeButton} className="TaskbarButton">Home</a>
+              <a onClick={this.AboutButton} className="TaskbarButton">About</a>
+              <a onClick={this.CalendarButton} className="TaskbarButton">Calendar</a>
+              <a onClick={this.CalendarButton} className="TaskbarButton">Contact</a>
+          </nav>
+        </header>
+        <main>
+          <div className="Content">
+            {content}
           </div>
+        </main>
+        <footer>
+          <div className="footer">
 
-        </div>
+            <div className="column left">
+              <img src={ClubLogo} />
+            </div>
+
+            <div className="column right">
+              <h2>Content</h2>
+              clubE-mail@example.com
+              <a href="https://srjccsc.slack.com/messages/C0LTMAXN3">Visit our Slack</a>
+            </div>
+
+          </div>
+        </footer>
       </div>
     );
   }

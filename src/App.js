@@ -9,9 +9,10 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import BigCalendar from 'react-big-calendar';
 import Calendar from 'react_google_calendar'
 import moment from 'moment';
+import config from '../config.json'
 
 const calendar_configuration = {
-    api_key: "AIzaSyA45vmQuavsIykPR1wQ6rzNvA5SFmzBoZc",
+    api_key: config.calendar_api_key,
     calendars: [
       {
         name: 'demo', // whatever you want to name it

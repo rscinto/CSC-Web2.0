@@ -1,0 +1,30 @@
+.Carousel>div:last-of-type>div{
+  margin: 0 auto;
+  display: block;
+}
+
+.Carousel>button{
+  background: none;
+  border: none;
+  position: relative;
+  top:175px
+}
+
+
+.Carousel>button:last-of-type{
+  float: left;
+
+}
+
+.Carousel>button:last-of-type:before{
+  content: "◄ "
+}
+
+.Carousel>button:first-of-type{
+  float: right;
+
+}
+
+.Carousel>button:first-of-type:after{
+  content: " ►"
+}

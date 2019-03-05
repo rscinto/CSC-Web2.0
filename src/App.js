@@ -12,7 +12,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import BigCalendar from 'react-big-calendar';
 import Calendar from 'react_google_calendar'
 import moment from 'moment';
-import config from '../config.json'
+import config from './config.json'
 
 const calendar_configuration = {
     api_key: config.calendar_api_key,

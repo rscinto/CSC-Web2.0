@@ -18,11 +18,12 @@ const calendar_configuration = {
         name: 'demo', // whatever you want to name it
         url: 'srjc.computer.science.club@gmail.com' // your calendar URL
       }
+
     ],
     dailyRecurrence: 700,
     weeklyRecurrence: 500,
     monthlyRecurrence: 20
-}
+};
 
 class App extends Component {
 

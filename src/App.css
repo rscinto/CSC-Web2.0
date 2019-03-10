@@ -1,136 +1,89 @@
-
-.App, body{
-  background-color: #425D9C;
-  height: 100%;
-}
-
-Header{
-  background-color: #B5C9DF;
-  font-size: 14pt;
-  height: 4.5em;
-}
-
-
-.Logo{
-  position: absolute;
-  left: 1em;
-  top: .18em;
-  /* float:left; */
-  font-family: Arvo;
-  font-size: 2em;
-  padding: none;
-  margin: none;
-}
-
-
-
-.Logo>img{
-  display:inline;
-  vertical-align: text-bottom;
-  width:1.5em;
-  height: 1.5em;
-}
-
-.Logo>span{
-  margin-left: .5em;
-  margin-right: .5em;
-  height: 1.5em;
-}
-
-.Taskbar{
-  display: inline;
-  position: absolute;
-  vertical-align: baseline;
-  right: 1em;
-  top: 1em;
-  /* float: right; */
-  margin: .5em;
-  padding: .25em;
-}
-
-.TaskbarButton{
-  color: black;
-  font-family: Arvo;
-  margin-left: 1.5em;
-}
-
-@media screen and (max-width: 1100px) {
-  Header{
-    /* overflow: visible;
-    height: auto; */
-    height: 6em;
-    text-align: center;
-  }
-
-  .Logo{
-    position: static;
-    max-width: 960px;
-    display: block;
-    margin: auto;
-    /* float: left;
-    clear: both; */
-    overflow: hidden;
-  }
-
-  .Taskbar{
-    position: static;
-    max-width: 960px;
-    display: block;
-    margin: auto;
-    /* float: left;
-    clear: both; */
-  }
+.App {
+  background-color: #F1F1F1;
+  text-align: center;
 
 }
 
-@media screen and (max-width: 640px){
-  Header{
-    height: auto;
-  }
-  .Logo>img{
-    width:1.5em;
-    margin:auto;
-    display: block;
-  }
-}
-
-/* Main, .Content{
-  position:fixed !important;
-  position:absolute;
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
-} */
-
-
-.Content{
-  max-width: 960px;
-  margin: auto;
-  padding: 1em;
+.footer {
+  background-color: #F1F1F1;
+  display: table;
   clear: both;
-  background-color: #FFFFFF;
+  content: "";
+  width: 100%;
 }
 
-.footer{
-  max-width: 960px;
-  margin: auto;
-  padding: 1em;
-  overflow: auto;
-  background-color: #DDE6F0;
-  /* position: absolute;
-  bottom:0; */
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-Footer{
-  background-color: #B5C9DF;
-
+.column {
+  background-color: #F1F1F1;
+  width: 50%;
 }
 
-.footer>.left{
+.left {
   float: left;
 }
 
-.footer>.right{
+.right {
   float: right;
+}
+
+.Banner {
+  background-color: #D4A849;
+}
+
+.rcorners3 {
+  border-radius: 0px 10px 10px 0px;
+  background: #4975d4;
+  border: none;
+  width: 100px;
+  height: 50px;
+  transition-duration: 0.1s;
+}
+
+.rcorners3:hover {
+  border-radius: 0px 10px 10px 0px;
+  background: #82E0AA;
+  border: none;
+  width: 100px;
+  height: 50px;
+}
+
+.rcorners2 {
+  border-radius: 0px;
+  background: #4975d4;
+  border: none;
+  width: 100px;
+  height: 50px;
+  transition-duration: 0.1s;
+}
+
+.rcorners2:hover {
+  border-radius: 0px;
+  background: #82E0AA;
+  border: none;
+  width: 100px;
+  height: 50px;
+}
+
+.rcorners1 {
+  border-radius: 10px 0px 0px 10px;
+  background: #4975d4;
+  border: none;
+  width: 100px;
+  height: 50px;
+  transition-duration: 0.1s;
+}
+
+.rcorners1:hover {
+  border-radius: 10px 0px 0px 10px;
+  background: #82E0AA;
+  border: none;
+  width: 100px;
+  height: 50px;
+  transition-duration: 0.1s;
 }

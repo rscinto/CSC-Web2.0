@@ -35,7 +35,17 @@ class App extends Component {
       pageNumber: 0,
       localizer: BigCalendar.momentLocalizer(moment),
       carouselItem: 0,
-      events:[]
+      events:[],
+      resources:[
+        {
+          link: "https://github.com/SRJC-Computer-Science-Club/CSC-Web2.0",
+          about: "The Github for this page!"
+        },
+        {
+          link: "https://www.nationalcyberleague.org/",
+          about: "National Cyber League"
+        }
+      ]
     };
 
     this.nextSlide = this.nextSlide.bind(this);
@@ -61,6 +71,13 @@ class App extends Component {
   }
 
   render() {
+
+    const clubOfficials = this.state.resources.map((resource) =>
+      <div>
+        <b>Link: </b>{resource.link}
+        <b>About: </b>{resource.about}
+      </div>
+    );
 
     const pageNumber = this.state.pageNumber;
     let content;
@@ -116,6 +133,12 @@ class App extends Component {
         config={calendar_configuration} />
       </div>
     }
+    if (pageNumber === 3) {
+      content =
+      <div className="Calendar">
+        {clubOfficials}
+      </div>
+    }
 
     return (
       <div className="App">
@@ -128,6 +151,7 @@ class App extends Component {
               <a onClick={() => {this.setState({pageNumber: 0})}} className="TaskbarButton">Home</a>
               <a onClick={() => {this.setState({pageNumber: 1})}} className="TaskbarButton">About</a>
               <a onClick={() => {this.setState({pageNumber: 2})}} className="TaskbarButton">Calendar</a>
+              <a onClick={() => {this.setState({pageNumber: 3})}} className="TaskbarButton">Resources</a>
           </nav>
         </header>
         <main>

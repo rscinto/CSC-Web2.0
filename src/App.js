@@ -12,7 +12,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import BigCalendar from 'react-big-calendar';
 import Calendar from 'react_google_calendar'
 import moment from 'moment';
-import config from '../config.json'
+import config from './config.json'
 
 const calendar_configuration = {
     api_key: config.calendar_api_key,
@@ -38,23 +38,8 @@ class App extends Component {
       events:[]
     };
 
-    this.HomeButton = this.HomeButton.bind(this);
-    this.AboutButton = this.AboutButton.bind(this);
-    this.CalendarButton = this.CalendarButton.bind(this);
     this.nextSlide = this.nextSlide.bind(this);
     this.prevSlide = this.prevSlide.bind(this);
-  }
-
-  HomeButton(){
-    this.setState({pageNumber: 0})
-  }
-
-  AboutButton(){
-    this.setState({pageNumber: 1})
-  }
-
-  CalendarButton(){
-    this.setState({pageNumber: 2})
   }
 
   nextSlide(){
@@ -76,8 +61,6 @@ class App extends Component {
   }
 
   render() {
-
-    console.log(this.state.carouselItem);
 
     const pageNumber = this.state.pageNumber;
     let content;
@@ -142,10 +125,9 @@ class App extends Component {
             <span>SRJC Computer Science Club</span>
           </div>
           <nav className="Taskbar">
-              <a onClick={this.HomeButton} className="TaskbarButton">Home</a>
-              <a onClick={this.AboutButton} className="TaskbarButton">About</a>
-              <a onClick={this.CalendarButton} className="TaskbarButton">Calendar</a>
-              <a onClick={this.CalendarButton} className="TaskbarButton">Contact</a>
+              <a onClick={() => {this.setState({pageNumber: 0})}} className="TaskbarButton">Home</a>
+              <a onClick={() => {this.setState({pageNumber: 1})}} className="TaskbarButton">About</a>
+              <a onClick={() => {this.setState({pageNumber: 2})}} className="TaskbarButton">Calendar</a>
           </nav>
         </header>
         <main>
@@ -161,9 +143,14 @@ class App extends Component {
             </div>
 
             <div className="column right">
-              <h2>Content</h2>
-              clubE-mail@example.com
-              <a href="https://srjccsc.slack.com/messages/C0LTMAXN3">Visit our Slack</a>
+            <h2>Quick Links</h2>
+            Email Us:
+            <br /><br />
+            <a href="mailto: srjc.computer.science.club@gmail.com">
+            srjc.computer.science.club@gmail.com
+            </a>
+            <br /><br />
+            <a href="https://srjccsc.slack.com/messages/C0LTMAXN3">Visit our Slack</a>
             </div>
 
           </div>

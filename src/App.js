@@ -148,10 +148,10 @@ class App extends Component {
             <span>SRJC Computer Science Club</span>
           </div>
           <nav className="Taskbar">
-              <a onClick={() => {this.setState({pageNumber: 0})}} className="TaskbarButton">Home</a>
-              <a onClick={() => {this.setState({pageNumber: 1})}} className="TaskbarButton">About</a>
-              <a onClick={() => {this.setState({pageNumber: 2})}} className="TaskbarButton">Calendar</a>
-              <a onClick={() => {this.setState({pageNumber: 3})}} className="TaskbarButton">Resources</a>
+              <a onClick={() => {this.setState({pageNumber: 0})}} className="TaskbarButton" href="#">Home</a>
+              <a onClick={() => {this.setState({pageNumber: 1})}} className="TaskbarButton" href="#">About</a>
+              <a onClick={() => {this.setState({pageNumber: 2})}} className="TaskbarButton" href="#">Calendar</a>
+              <a onClick={() => {this.setState({pageNumber: 3})}} className="TaskbarButton" href="#">Resources</a>
           </nav>
         </header>
         <main>

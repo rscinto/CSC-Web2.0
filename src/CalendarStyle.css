@@ -1,0 +1,40 @@
+
+.Calendar {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.rbc-event {
+    background-color: #002456;
+    border-radius: 1px;  
+}
+.rbc-event.rbc-selected {
+    background-color: #820000
+}
+.rbc-show-more {
+    color: #002456;
+}
+.rbc-month-view {
+    border: none;
+}
+.rbc-today {
+    background-color: #dab3b2;
+}
+.rbc-day-bg + .rbc-day-bg {
+    border: none;
+}
+.rbc-month-row + .rbc-month-row {
+    border: none;
+}
+.rbc-row.rbc-month-header {
+    border: none;
+}
+.rbc-header {
+    border-bottom: 1px solid #242526;
+    border: none;
+}
+.rbc-header + .rbc-header {
+    border-bottom: 1px solid #242526;
+    border-left: 1px solid #242526;
+    border: none;
+}

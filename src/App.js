@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Banner from './Banner.png';
+//import Logo from '/public/bear.png'
 import ClubLogo from './ClubLogo.png';
 import Placeholder from './Placeholder.jpg';
 import { Carousel } from 'react-responsive-carousel';
+import './fonts.css';
 import './App.css';
+import './Carousel.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import BigCalendar from 'react-big-calendar';
@@ -34,7 +37,17 @@ class App extends Component {
       pageNumber: 0,
       localizer: BigCalendar.momentLocalizer(moment),
       carouselItem: 0,
-      events:[]
+      events:[],
+      resources:[
+        {
+          link: "https://github.com/SRJC-Computer-Science-Club/CSC-Web2.0",
+          about: "The Github for this page!"
+        },
+        {
+          link: "https://www.nationalcyberleague.org/",
+          about: "National Cyber League"
+        }
+      ]
     };
 
     this.HomeButton = this.HomeButton.bind(this);
@@ -76,7 +89,12 @@ class App extends Component {
 
   render() {
 
-    console.log(this.state.carouselItem);
+    const clubOfficials = this.state.resources.map((resource) =>
+      <div>
+        <b>Link: </b>{resource.link}
+        <b>About: </b>{resource.about}
+      </div>
+    );
 
     const pageNumber = this.state.pageNumber;
     let content;
@@ -84,7 +102,7 @@ class App extends Component {
     if (pageNumber === 0) {
       content =
       <div className="Carousel">
-        1447 Bussman Hall Tuesday 12-2pm
+      <div>1447 Bussman Hall Tuesday 12-2pm</div>
       <button onClick={this.nextSlide}>Next</button>
       <button onClick={this.prevSlide}>Previous</button>
       <Carousel
@@ -132,41 +150,52 @@ class App extends Component {
         config={calendar_configuration} />
       </div>
     }
+    if (pageNumber === 3) {
+      content =
+      <div className="Calendar">
+        {clubOfficials}
+      </div>
+    }
 
     return (
       <div className="App">
-
-        <div className="Banner">
-          <img src={Banner} alt={"Banner"}/>
-        </div>
-
-        <div className="Taskbar">
-          <button onClick={this.HomeButton} className="rcorners1">Home</button>
-          <button onClick={this.AboutButton} className="rcorners2">About</button>
-          <button onClick={this.CalendarButton} className="rcorners3">Caldendar</button>
-        <div>
-
-
-        </div>
-        </div>
-
-        <div className="Content">
-          {content}
-        </div>
-
-        <div className="footer">
+        <header>
+          <div className="Logo">
+            <img src='bear.png'/>
+            <span>SRJC Computer Science Club</span>
+          </div>
+          <nav className="Taskbar">
+              <a onClick={() => {this.setState({pageNumber: 0})}} className="TaskbarButton" href="#">Home</a>
+              <a onClick={() => {this.setState({pageNumber: 1})}} className="TaskbarButton" href="#">About</a>
+              <a onClick={() => {this.setState({pageNumber: 2})}} className="TaskbarButton" href="#">Calendar</a>
+              <a onClick={() => {this.setState({pageNumber: 3})}} className="TaskbarButton" href="#">Resources</a>
+          </nav>
+        </header>
+        <main>
+          <div className="Content">
+            {content}
+          </div>
+        </main>
+        <footer>
+          <div className="footer">
 
           <div className="column left">
             <img src={ClubLogo} alt={"Club Logo"}/>
           </div>
 
-          <div className="column right">
-            <h2>Content</h2>
-            clubE-mail@example.com
+            <div className="column right">
+            <h2>Quick Links</h2>
+            Email Us:
+            <br /><br />
+            <a href="mailto: srjc.computer.science.club@gmail.com">
+            srjc.computer.science.club@gmail.com
+            </a>
+            <br /><br />
             <a href="https://srjccsc.slack.com/messages/C0LTMAXN3">Visit our Slack</a>
-          </div>
+            </div>
 
-        </div>
+          </div>
+        </footer>
       </div>
     );
   }
